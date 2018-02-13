@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: "root"
+  host: mysql
+
+development:
+  <<: *default
+  database: dev
+
+test:
+  <<: *default
+  database: dev
+
+production:
+  <<: *default
+  database: workspace_production
+  username: workspace
+  password: <%= ENV['WORKSPACE_DATABASE_PASSWORD'] %>
